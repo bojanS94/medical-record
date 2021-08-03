@@ -1,0 +1,35 @@
+<form>
+    <div class="form-group form-inline">
+        Pretraga pacijenata: <input class="form-control ml-2" type="text" placeholder="Pretrazi"
+            [(ngModel)]="searchValue" />
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Br. Kartona</th>
+            <th scope="col">Ime</th>
+            <th scope="col">Prezime</th>
+            <th scope="col">Datum rodjenja</th>
+            <th scope="col">Naseljeno mjesto</th>
+            <th scope="col">Ulica i br.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of patients | filter: searchValue ">
+            <th scope="row">{{ patient.id }}</th>
+            <th scope="row"><input type="text" [(ngModel)]="patient.cardNumber"></th>
+            <th scope="row">{{ patient.name }}</th>
+            <th scope="row">{{ patient.surname }}</th>
+            <th scope="row">{{ patient.born }}</th>
+            <th scope="row">
+                <select [(ngModel)]="selectedValue">
+                    <option *ngFor="let local of locales" value="null">{{local.name}}</option>
+                </select>
+            </th>
+            <th scope="row">{{ patient.street }}</th>
+        </tr>
+    </tbody>
+</table>
