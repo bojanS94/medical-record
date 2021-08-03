@@ -1,0 +1,41 @@
+.selectedPatient {
+    background-color: red;
+    color: #fff;
+}
+
+tr {
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.unselected:hover {
+    background-color: inherit !important;
+    cursor: auto;
+}
+
+tr:hover {
+    background-color: rgb(0 182 178 / 50%) !important;
+}
+
+textarea {
+    min-height: 100px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.selected {
+    background-color: rgb(0 182 178 / 50%) !important;
+}
+
+.form-control {
+    max-width: 170px;
+    width: 100%;
+}
+
+.forma {
+    margin-top: 10px;
+}
+
+.non-editable {
+    background-color: #fff;
+}

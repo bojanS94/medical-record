@@ -1,6 +1,7 @@
 import { PATIENTS } from '../../mock-patients';
 import { Component, OnInit } from '@angular/core';
-// import { Patient } from '../../patient';
+import { Patient } from '../../patient';
+import { PatientsService } from '../../services/patients.service';
 
 @Component({
   selector: 'app-patients',
@@ -11,9 +12,10 @@ export class PatientsComponent implements OnInit {
 
   searchValue?: any;
   patients = PATIENTS;
-
+  selectedPatient?: Patient;
 
   locales = [
+    { id: 0, name: "" },
     { id: 1, name: "Budzak" },
     { id: 2, name: "Mejdan" },
     { id: 3, name: "Centar" },
@@ -22,9 +24,20 @@ export class PatientsComponent implements OnInit {
   ];
   selectedValue = null;
 
-  constructor() { }
+  constructor(private patientsService: PatientsService) { }
 
   ngOnInit(): void {
+    this.getPatients();
+  }
+
+  getPatients() {
+
+    this.patientsService.getPatients()
+      .subscribe(patients => (this.patients = patients));
+  }
+
+  onSelect(patient: Patient) {
+    this.selectedPatient = patient;
   }
 
 }

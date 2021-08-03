@@ -1,15 +1,16 @@
+<hr>
 <form>
     <div class="form-group form-inline">
-        Pretraga pacijenata: <input class="form-control ml-2" type="text" placeholder="Pretrazi"
-            [(ngModel)]="searchValue" />
+        Pretraga pacijenata:
+        <input class="form-control ml-2 forma" type="text" placeholder="Pretrazi" [(ngModel)]="searchValue" />
     </div>
 </form>
 
 <table class="table table-striped">
     <thead>
-        <tr>
+        <tr class="unselected">
             <th scope="col">#</th>
-            <th scope="col">Br. Kartona</th>
+            <th scope="col" class="control-label">Br. Kartona</th>
             <th scope="col">Ime</th>
             <th scope="col">Prezime</th>
             <th scope="col">Datum rodjenja</th>
@@ -18,18 +19,39 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let patient of patients | filter: searchValue ">
-            <th scope="row">{{ patient.id }}</th>
-            <th scope="row"><input type="text" [(ngModel)]="patient.cardNumber"></th>
-            <th scope="row">{{ patient.name }}</th>
-            <th scope="row">{{ patient.surname }}</th>
-            <th scope="row">{{ patient.born }}</th>
+        <tr [class.selected]="patient === selectedPatient" *ngFor="let patient of patients | filter: searchValue"
+            (click)="onSelect(patient)">
+            <th scope=" row">{{ patient.id }}</th>
+            <th scope="row">
+                <input minlength="4" required id="card" name="card" type="number" [(ngModel)]="patient.cardNumber"
+                    #card="ngModel" class="form-control" [class.is-invalid]="card.invalid && card.touched">
+                <span class="help-block text-danger" *ngIf="card.invalid">Obavezno polje!</span>
+            </th>
+            <th scope="row">
+                <input required type="text" maxlength="20" value="{{ patient.name }}" #name="ngModel"
+                    class="form-control" [(ngModel)]="patient.name" [class.is-invalid]="name.invalid && name.touched">
+                <span class="help-block text-danger" *ngIf="name.invalid">Obavezno polje!</span>
+            </th>
+            <th scope="row"><input required type="text" maxlength="20" value="{{ patient.surname }}" #surname="ngModel"
+                    class="form-control" [(ngModel)]="patient.surname"
+                    [class.is-invalid]="surname.invalid && surname.touched">
+                <span class="help-block text-danger" *ngIf="surname.invalid">Obavezno polje!</span>
+            </th>
+            <th scope="row"><input type="text" class="form-control non-editable"
+                    placeholder="{{ patient.born | date: 'dd/MM/yyyy' }}" readonly>
+            </th>
             <th scope="row">
                 <select [(ngModel)]="selectedValue">
-                    <option *ngFor="let local of locales" value="null">{{local.name}}</option>
+                    <option *ngFor="let local of locales" value="">{{local.name}}</option>
                 </select>
             </th>
-            <th scope="row">{{ patient.street }}</th>
+            <th scope="row"><input maxlength="50" type="text" value="{{ patient.street }}"></th>
         </tr>
     </tbody>
 </table>
+<h3>Detalji o pacijentu:</h3>
+<div class="selectedPatient" *ngIf="selectedPatient">
+    <h2><input inputmode="numeric" value="{{ selectedPatient.phone | phoneFormat }}"></h2>
+    <h5><input type="email" value="{{ selectedPatient.email }}"></h5>
+    <p><textarea width="500px" type="text" value="{{ selectedPatient.message }}"></textarea></p>
+</div>

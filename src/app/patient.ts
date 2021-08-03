@@ -1,13 +1,13 @@
 export class Patient {
     id?: number;
-    cardNumber?: number;
+    cardNumber?: number | null;
     name?: string;
     surname?: string;
-    born?: number;
+    born?: string;
     locale?: string;
     street?: string;
 
-    // phone: number;
-    // email: string;
-    // message: string;
+    phone?: number | null;
+    email?: string;
+    message?: string;
 }

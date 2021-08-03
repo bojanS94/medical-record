@@ -6,44 +6,35 @@ export const PATIENTS: Patient[] = [
         cardNumber: 2223,
         name: 'Stefan',
         surname: 'Mijic',
-        born: 12051978,
+        born: '11/01/1959',
         locale: 'Lazarevo',
-        street: 'Ulica 17 br. 5'
+        street: 'Ulica 17 br. 5',
+        phone: 38765333333,
+        email: 'Stefan@Mijic.com',
+        message: 'Kardiovaskularni problemi, zakazan za pregled u Cetvrtak'
     },
     {
         id: 2,
         cardNumber: 6611,
         name: 'Dragana',
         surname: 'Zeljkovic',
-        born: 111444,
+        born: '11/02/1965',
         locale: 'Centar',
-        street: 'Centar bb'
+        street: 'Centar bb',
+        phone: 38765333333,
+        email: 'Dragana@Zeljkovic.com',
+        message: 'GERB, refluks + gastritis, terapija dodana'
     },
     {
         id: 3,
         cardNumber: 8883,
         name: 'Jovana',
         surname: 'Ilic',
-        born: 12051978,
+        born: '12/05/1994',
         locale: 'Drakulic',
-        street: 'Mladje Cusica 22'
-    },
-    {
-        id: 4,
-        cardNumber: 4444,
-        name: 'Radovan',
-        surname: 'Milakovic',
-        born: 12051978,
-        locale: 'Starcevica',
-        street: 'Ulica 12 br. 2'
-    },
-    {
-        id: 5,
-        cardNumber: 9981,
-        name: 'Jelena',
-        surname: 'Opancic',
-        born: 12051978,
-        locale: 'Mejdan',
-        street: 'Ulica 11 br. 77'
-    },
+        street: 'Mladje Cusica 22',
+        phone: 38765333333,
+        email: 'Jovana@Ilic.com',
+        message: 'Rozacea, upucena kod dermatologa'
+    }
 ];
