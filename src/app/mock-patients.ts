@@ -9,7 +9,7 @@ export const PATIENTS: Patient[] = [
         born: '11/01/1959',
         locale: 'Lazarevo',
         street: 'Ulica 17 br. 5',
-        phone: 38765333333,
+        phone: '+387 65/222-111',
         email: 'Stefan@Mijic.com',
         message: 'Kardiovaskularni problemi, zakazan za pregled u Cetvrtak'
     },
@@ -21,7 +21,7 @@ export const PATIENTS: Patient[] = [
         born: '11/02/1965',
         locale: 'Centar',
         street: 'Centar bb',
-        phone: 38765333333,
+        phone: '+387 65/333-555',
         email: 'Dragana@Zeljkovic.com',
         message: 'GERB, refluks + gastritis, terapija dodana'
     },
@@ -33,7 +33,7 @@ export const PATIENTS: Patient[] = [
         born: '12/05/1994',
         locale: 'Drakulic',
         street: 'Mladje Cusica 22',
-        phone: 38765333333,
+        phone: '+387 65/999-888',
         email: 'Jovana@Ilic.com',
         message: 'Rozacea, upucena kod dermatologa'
     }

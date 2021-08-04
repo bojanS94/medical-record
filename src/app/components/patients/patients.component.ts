@@ -26,7 +26,8 @@ export class PatientsComponent implements OnInit {
   ];
   selectedValue = null;
 
-  constructor(private patientsService: PatientsService) { }
+  constructor(private patientsService: PatientsService) {
+  }
 
   ngOnInit(): void {
     this.getPatients();
@@ -44,6 +45,8 @@ export class PatientsComponent implements OnInit {
   card = new PatientsInfo();
 
   newInfo() {
-    this.card = new PatientsInfo();
+
+
   }
+
 }

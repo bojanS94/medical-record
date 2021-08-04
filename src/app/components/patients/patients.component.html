@@ -5,8 +5,9 @@
         <tr class="unselected unselected_top">
             <th scope="row">
                 <label class="control-label" for="card">Br. Kartona
-                    <input required id="card" name="card" type="text" class="form-control" [(ngModel)]="card.cardNumber"
-                        #cardNumber="ngModel" [class.has-error]="cardNumber.invalid && cardNumber.touched">
+                    <input required id="card" name="card" type="number" class="form-control"
+                        [(ngModel)]="card.cardNumber" #cardNumber="ngModel"
+                        [class.has-error]="cardNumber.invalid && cardNumber.touched">
                     <span class="help-block text-danger" *ngIf="cardNumber.invalid">Obavezno polje!</span>
                 </label>
             </th>
@@ -35,8 +36,10 @@
             </th>
             <th scope="row">
                 <label for="" class="control-label">Ulica i br.</label>
-                <input maxlength="50" type="text" class="form-control" [disabled]="!locale.name">
-                <span class="help-block text-danger" *ngIf="locale.touched && locale.invalid">Odaberi naselje!</span>
+                <input maxlength="50" type="text" class="form-control" [disabled]="!locale.name" #street="ngModel"
+                    [(ngModel)]="card.street">
+                <span class="help-block text-danger" *ngIf="locale.touched && locale.invalid">Odaberi
+                    naselje!</span>
             </th>
 
             <th>
@@ -92,7 +95,8 @@
 </table>
 <h3>Detalji o pacijentu:</h3>
 <div class="selectedPatient" *ngIf="selectedPatient">
-    <h2><input inputmode="numeric" value="{{ selectedPatient.phone }}"></h2>
-    <h5><input type="email" value="{{ selectedPatient.email }}"></h5>
+    <h2><input type="text" value="{{ selectedPatient.phone }}" mask="+000 00/000-000"></h2>
+    <h5><input type="text" value="{{ selectedPatient.email }}" mask="A*@A*.SSSSS">
+    </h5>
     <p><textarea width="500px" type="text" value="{{ selectedPatient.message }}"></textarea></p>
 </div>
