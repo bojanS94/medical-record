@@ -3,6 +3,10 @@ h1 span {
     margin-right: 10px;
 }
 
+h1 img {
+    filter: drop-shadow(0 0 1.5px white);
+}
+
 * {
     color: #fff;
 }

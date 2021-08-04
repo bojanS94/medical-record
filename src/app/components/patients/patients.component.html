@@ -5,20 +5,23 @@
         <tr class="unselected unselected_top">
             <th scope="row">
                 <label class="control-label" for="card">Br. Kartona
-                    <input [class.has-error]="cardNumberControl.invalid" required id="card" name="card" type="text"
-                        class="form-control" #card="ngModel" [(ngModel)]="card">
-                    <span class="help-block text-danger">Obavezno polje!</span>
+                    <input required id="card" name="card" type="text" class="form-control" [(ngModel)]="card.cardNumber"
+                        #cardNumber="ngModel" [class.has-error]="cardNumber.invalid && cardNumber.touched">
+                    <span class="help-block text-danger" *ngIf="cardNumber.invalid">Obavezno polje!</span>
                 </label>
             </th>
             <th scope="row">
-                <label for="">Ime</label>
-                <input type="text" class="form-control">
-                <span class="help-block text-danger">Obavezno polje!</span>
+                <label class="control-label" for="name">Ime</label>
+                <input maxlength="20" required type="text" class="form-control" [(ngModel)]="card.name" #name="ngModel"
+                    [class.has-error]="name.invalid && name.touched">
+                <span class="help-block text-danger" *ngIf="name.invalid">Obavezno polje!</span>
             </th>
             <th scope="row">
-                <label for="">Prezime</label>
-                <input type="text" class="form-control">
-                <span class="help-block text-danger">Obavezno polje!</span>
+                <label class="control-label" for="surname">Prezime</label>
+                <input maxlength="20" type="text" class="form-control" required type="text" class="form-control"
+                    [(ngModel)]="card.surname" #surname="ngModel"
+                    [class.has-error]="surname.invalid && surname.touched">
+                <span class="help-block text-danger" *ngIf="surname.invalid">Obavezno polje!</span>
             </th>
             <th scope="row">
                 <label for="">Datum rodjenja</label>
@@ -27,7 +30,7 @@
             <th scope="row">
                 <label for="option">Naselje</label>
                 <select class="form-control">
-                    <option *ngFor="let local of locales" value="">{{local.name}}</option>
+                    <option *ngFor="let local of locales" value="" >{{local.name}}</option>
                 </select>
             </th>
             <th scope="row">

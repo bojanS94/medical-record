@@ -1,13 +1,26 @@
 export class Patient {
-    id?: number;
-    cardNumber?: number | null;
-    name?: string;
-    surname?: string;
-    born?: string;
-    locale?: string;
-    street?: string;
+    public id?: number;
+    public cardNumber?: number | null;
+    public name?: string;
+    public surname?: string;
+    public born?: string;
+    public locale?: string;
+    public street?: string;
 
-    phone?: number | null;
-    email?: string;
-    message?: string;
+    public phone?: number | null;
+    public email?: string;
+    public message?: string;
+}
+
+export class PatientsInfo {
+
+    constructor(
+        public id?: number,
+        public cardNumber?: number,
+        public name?: string,
+        public surname?: string,
+        public born?: string,
+        public locale?: string,
+        public street?: string
+    ) { }
 }
