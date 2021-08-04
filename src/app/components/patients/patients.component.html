@@ -29,24 +29,25 @@
             </th>
             <th scope="row">
                 <label for="option">Naselje</label>
-                <select class="form-control">
-                    <option *ngFor="let local of locales" value="" >{{local.name}}</option>
+                <select class="form-control" [(ngModel)]="locale.name" required #locale="ngModel">
+                    <option *ngFor="let local of locales">{{local.name}}</option>
                 </select>
             </th>
             <th scope="row">
-                <label for="">Ulica i br.</label>
-                <input maxlength="50" type="text" value="" class="form-control">
+                <label for="" class="control-label">Ulica i br.</label>
+                <input maxlength="50" type="text" class="form-control" [disabled]="!locale.name">
+                <span class="help-block text-danger" *ngIf="locale.touched && locale.invalid">Odaberi naselje!</span>
             </th>
 
             <th>
-                <button class="btn btn-success">Dodaj</button>
+                <button class="btn btn-success" (click)="newInfo()">Dodaj</button>
             </th>
         </tr>
     </thead>
 </table>
 
 <form>
-    <div class="form-group form-inline">
+    <div class=" form-group form-inline">
         Pretraga pacijenata:
         <input class="form-control ml-2 forma" type="text" placeholder="Pretrazi" [(ngModel)]="searchValue" />
     </div>

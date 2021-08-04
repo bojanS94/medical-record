@@ -16,7 +16,7 @@ export class PatientsComponent implements OnInit {
   selectedPatient?: Patient;
   cardNumberControl?: Patient;
 
-  locales = [
+  public locales = [
     { id: 0, name: "" },
     { id: 1, name: "Budzak" },
     { id: 2, name: "Mejdan" },
@@ -41,9 +41,9 @@ export class PatientsComponent implements OnInit {
     this.selectedPatient = patient;
   }
 
-  card = new PatientsInfo(0, 7774, 'Bojan', 'Savic', '02051994', 'Drakulic', 'Mladje Cusica bb');
+  card = new PatientsInfo();
 
   newInfo() {
-    this.card = new PatientsInfo(4, 0, '', '', '', '', '',);
+    this.card = new PatientsInfo();
   }
 }
