@@ -2,6 +2,7 @@ import { PATIENTS } from '../../mock-patients';
 import { Component, OnInit } from '@angular/core';
 import { Patient } from '../../patient';
 import { PatientsService } from '../../services/patients.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-patients',
@@ -13,6 +14,7 @@ export class PatientsComponent implements OnInit {
   searchValue?: any;
   patients = PATIENTS;
   selectedPatient?: Patient;
+  cardNumberControl?: Patient;
 
   locales = [
     { id: 0, name: "" },
@@ -31,7 +33,6 @@ export class PatientsComponent implements OnInit {
   }
 
   getPatients() {
-
     this.patientsService.getPatients()
       .subscribe(patients => (this.patients = patients));
   }

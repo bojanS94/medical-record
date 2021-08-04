@@ -1,11 +1,28 @@
 .selectedPatient {
-    background-color: red;
     color: #fff;
 }
 
 tr {
     cursor: pointer;
     transition: all 0.25s ease;
+}
+
+table,
+div,
+th,
+tr {
+    color: #fff;
+}
+
+.unselected_top {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.unselected_top > th {
+    border: none;
 }
 
 .unselected:hover {
